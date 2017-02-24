@@ -1,0 +1,6 @@
+flask==0.12
+flask-assets==0.12
+flask-sqlalchemy==2.1
+mysql-connector==2.1.4
+pyscss==1.3.5
+requests==2.13.0

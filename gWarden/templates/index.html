@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+    <table class="roster">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Guild Rank</th>
+                <th>Level</th>
+                <th>Gender</th>
+                <th>Race</th>
+                <th>Specialization</th>
+                <th>Class</th>
+                <th>iLevel</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in roster %}
+                <tr class="{{ m.klass.name | remove_space() }} member" data-charname="{{ m.name }}" data-server="{{ m.server }}">
+                    <td><a href="http://us.battle.net/wow/en/character/{{ m.server }}/{{ m.name }}/advanced">{{ m.name }}-{{ m.server | remove_space() }}</a></td>
+                    <td>{{ m.guild_rank }}</td>
+                    <td>{{ m.level }}</td>
+                    <td>{{ m.gender }}</td>
+                    <td>{{ m.race.name }}</td>
+                    <td>
+                        {% if m.spec == none %}
+                            N/a
+                        {% else %}
+                            {{ m.spec.name }}
+                        {% endif %}
+                    </td>
+                    <td>{{ m.klass.name }}</td>
+                    <td>{{ m.ilevel }}</td>
+                    <td>{{ m.last_updated.strftime("%B %d, %Y @ %I:%M %p") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Tanks: {{ counts['tanks'] }}</p>
+    <p>Healers: {{ counts['healers'] }}</p>
+    <p>Ranged DPS: {{ counts['ranged'] }}</p>
+    <p>DPS: {{ counts['dps'] }}</p>
+    <hr />
+    <p>Total: {{ counts['total'] }}</p>
+    <p>Avg iLevel: {{ counts['avg_ilevel'] }}</p>
+    <p>Min iLevel: {{ counts['min_ilevel'] }}</p>
+    <p>Max iLevel: {{ counts['max_ilevel'] }}</p>
+{% endblock %}

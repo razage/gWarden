@@ -1,0 +1,10 @@
+# Directories
+.idea/
+*__pycache__/
+_OLD_/
+gWarden/static/.webassets-cache/
+gWarden/static/css/
+
+# Specific Files
+database.db
+settings.json

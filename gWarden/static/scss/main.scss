@@ -1,0 +1,27 @@
+@import "colors";
+
+html {
+    background: #253536
+}
+
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.roster {
+    background: #354546;
+    margin: 0 auto;
+    width: 75%;
+    text-align: center;
+
+    th {
+        color: #FFFFFF;
+    }
+
+    .member {
+        &:hover {
+            background: #465657;
+        }
+    }
+}
