@@ -36,6 +36,7 @@ def home():
     return render_template("index.html", title="Home", roster=Character.query.order_by(Character.name).all(), counts=counts)
 
 
+# TODO: this function is awful and it isn't in a good place. it should be rewritten and moved.
 @app.route("/get_roster")
 def get_roster():
     from gWarden.models import Class, Race, Specialization

@@ -3,6 +3,7 @@
 *__pycache__/
 _OLD_/
 gWarden/static/.webassets-cache/
+gWarden/static/bower_components/
 
 # Specific Files
 database.db

@@ -1,0 +1,21 @@
+{
+  "name": "gWarden",
+  "homepage": "https://github.com/razage/gWarden",
+  "authors": [
+    "Thomas Hinkle <thomashinkle2393@gmail.com>"
+  ],
+  "description": "a guild analytics tool for world of warcraft",
+  "main": "",
+  "license": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
