@@ -1,5 +1,5 @@
 {
-  "name": "gWarden",
+  "name": "gwarden",
   "homepage": "https://github.com/razage/gWarden",
   "authors": [
     "Thomas Hinkle <thomashinkle2393@gmail.com>"
@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "plotlyjs": "plotly#^1.18.1"
   }
 }
