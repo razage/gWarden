@@ -7,4 +7,5 @@ gWarden/static/bower_components/
 
 # Specific Files
 database.db
+database.db-journal
 settings.json

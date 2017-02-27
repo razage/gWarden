@@ -20,15 +20,15 @@ assets.register('css_all', scss)
 @app.route("/")
 def home():
     from gWarden.characters.models import Character
-    from gWarden.models import Specialization
+    from gWarden.characters.utils import get_count
 
     counts = {
-        "tanks": Character.query.filter(Character.spec.has(Specialization.role == "Tank")).count(),
-        "dps": Character.query.filter(Character.spec.has(Specialization.role == "DPS")).count(),
-        "ranged": Character.query.filter(Character.spec.has(Specialization.role == "RDPS")).count(),
-        "healers": Character.query.filter(Character.spec.has(Specialization.role == "Healer")).count(),
+        "tanks": get_count("role", "Tank"),
+        "dps": get_count("role", "DPS"),
+        "ranged": get_count("role", "RDPS"),
+        "healers": get_count("role", "Healer"),
         "total": len(Character.query.all()),
-        "avg_ilevel": db.session.query(func.avg(Character.ilevel)).filter(Character.level == 110).scalar(),
+        "avg_ilevel": "%.2f" % db.session.query(func.avg(Character.ilevel)).filter(Character.level == 110).scalar(),
         "min_ilevel": db.session.query(func.min(Character.ilevel)).filter(Character.level == 110).scalar(),
         "max_ilevel": db.session.query(func.max(Character.ilevel)).filter(Character.level == 110).scalar()
     }
@@ -76,7 +76,3 @@ def get_roster():
         db.session.commit()
 
     return "Nothing"
-
-from gWarden.filters import remove_space
-
-app.jinja_env.filters['remove_space'] = remove_space
